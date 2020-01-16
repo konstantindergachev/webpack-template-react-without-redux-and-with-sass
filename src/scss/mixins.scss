@@ -1,0 +1,17 @@
+@mixin deskfirst($breakpoint) {
+  @media only screen and (max-width: $breakpoint + "px") {
+    @content;
+  }
+}
+
+@mixin title($color){
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: $color;
+}
+
+@function rem($px){
+  @return $px/16px + 0rem;
+}

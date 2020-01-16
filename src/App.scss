@@ -1,0 +1,43 @@
+@import './scss/mixins.scss';
+
+:root{
+  --header-height: rem(100px);
+  --footer-height: rem(100px);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+html {
+  font-size: 16px;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+img {
+  min-width: 100%;
+}
