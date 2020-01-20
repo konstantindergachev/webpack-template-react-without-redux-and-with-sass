@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 const cssDev = [ 'style-loader', 'css-loader', 'sass-loader' ];
@@ -47,6 +48,10 @@ const config = {
       filename: !isProd ? '[name].css' : '/css/[name].[hash].css',
       chunkFilename: !isProd ? '[id].css' : '/css/[id].[hash].css',
     }),
+    new CopyPlugin([
+      { from: 'src/img/favicon', to: 'img/favicon', toType: 'dir' },
+      { from: 'src/img/favicon.ico', to: 'favicon.ico', toType: 'file' },
+    ]),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.ProvidePlugin({
