@@ -48,10 +48,12 @@ const config = {
       filename: !isProd ? '[name].css' : '/css/[name].[hash].css',
       chunkFilename: !isProd ? '[id].css' : '/css/[id].[hash].css',
     }),
-    new CopyPlugin([
-      { from: 'src/img/favicon', to: 'img/favicon', toType: 'dir' },
-      { from: 'src/img/favicon.ico', to: 'favicon.ico', toType: 'file' },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/img/favicon', to: 'img/favicon', toType: 'dir' },
+        { from: 'src/img/favicon.ico', to: 'favicon.ico', toType: 'file' },
+      ],
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.ProvidePlugin({

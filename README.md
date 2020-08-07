@@ -3,26 +3,32 @@
 
 ## Quick Start
 
-```bash
 # Step 1 Clone repo
+```bash
 git clone git@github.com:konstantindergachev/webpack-template-react-without-redux-and-with-sass.git
-
+```
 # Step 2 Install dependencies
-yarn install -i or npm install
+```bash
+yarn or npm install
+```
 
-# Step 3 Use your own social icons
-# Step 4 Use your own favicon.ico and favicon directory in the src/img
-# Step 5 Start this react template on localhost:3000
-yarn run dev or npm run dev
-# Step 6 Buid your project for production
-yarn run build or npm run build
-
+# Step 3 Use your own favicon.ico and favicon directory
+```bash
+src/img/favicon.ico
+src/img/favicon
+```
+# Step 5 Start this react template on developer mode on localhost:3000
+```bash
+yarn dev or npm run dev
+```
+# Step 6 Buid your project for production mode
+```bash
+yarn build or npm run build
+```
 ## Info
 ### Author
 Konstantin Dergachev
-
-### Version
-1.0.0
+Konstantin Dergachev [portfolio](http://dergachevkonstantin.surge.sh/).
 
 ### License
 This project is licensed under the MIT License
