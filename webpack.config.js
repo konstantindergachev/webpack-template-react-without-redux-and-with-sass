@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
-const cssDev = [ 'style-loader', 'css-loader', 'sass-loader' ];
-const cssProd = [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ];
+const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
+const cssProd = [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'];
 const cssConfig = isProd ? cssProd : cssDev;
 
 const config = {
@@ -32,7 +32,7 @@ const config = {
       },
       {
         test: /\.(png|jpe?g|gif|ico|svg)$/,
-        loader: 'file-loader?name=img/[name].[ext]',
+        use: [{ loader: 'file-loader?name=img/[name].[ext]' }],
       },
     ],
   },
@@ -55,7 +55,6 @@ const config = {
       ],
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
@@ -63,7 +62,6 @@ const config = {
   devServer: {
     noInfo: true,
     overlay: true,
-    hot: true,
     historyApiFallback: true, //to 404s-error will fallback to index.html
     open: true,
     port: 3000,
@@ -75,6 +73,6 @@ const config = {
 
 module.exports = (env, options) => {
   const production = options.mode === 'production';
-  config.devtool = production ? false : 'cheap-module-source-map';
+  config.devtool = production ? false : 'eval-cheap-module-source-map'; //best source-map
   return config;
 };
